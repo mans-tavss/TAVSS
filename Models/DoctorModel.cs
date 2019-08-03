@@ -9,14 +9,13 @@ namespace TAVSS.Models
 {
     public class DoctorModel
     {
+        [Key]
+        [Required]
+        public int Id { get; set; }
 
         [Required]
-        [Display(Name = "First Name")]
-        public string FName { get; set; }
-
-        [Required]
-        [Display(Name = "Last Name")]
-        public string Lname { get; set; }
+        [Display(Name = "Doctor Name")]
+        public string DName { get; set; }
 
         [Required]
         [DataType(DataType.Password), MinLength(8), MaxLength(100)]

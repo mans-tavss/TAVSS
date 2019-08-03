@@ -8,6 +8,10 @@ namespace TAVSS.Models
 {
     public class ProjectModel
     {
+        [Key]
+        [Required]
+        public int Id { get; set; }
+
         [Required]
         [MaxLength(100)]
         public string PName { get; set; }

@@ -3,8 +3,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TAVSS.Data;
 
 namespace TAVSS
 {
@@ -28,6 +30,8 @@ namespace TAVSS
                 configuration.RootPath = "ClientApp/dist";
             });
 
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             #region Cross Origin Request Service
             //Add Cors 
             services.AddCors(options => {
@@ -37,7 +41,7 @@ namespace TAVSS
             });
             #endregion
         }
-
+        
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {

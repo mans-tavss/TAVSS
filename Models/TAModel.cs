@@ -9,8 +9,10 @@ namespace TAVSS.Models
 {
     public class TAModel
     {
+        [Key]
+        [Required]
+        public int Id { get; set; }
 
- 
 
         [Required]
         [Display(Name = "Teaching Assistant Name")]
