@@ -6,3 +6,13 @@ This is Web Project
  
 ## Adding CORS to A project (dotnet by default does not support Cross origin resource sharing)
 
+## Adding Models of Views 
+ - Register View Model
+ - Login View Model
+## DataBase Modeling
+ - Student 
+ - Doctor
+ - Project
+ - TA
+ - Course
+ 
