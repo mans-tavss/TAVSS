@@ -6,18 +6,13 @@ using System.Threading.Tasks;
 
 namespace TAVSS.Models
 {
-    public class ProjectModel
+    public class GroupModel
     {
         [Required]
         [MaxLength(100)]
-        public string PName { get; set; }
-
-        [MaxLength(1000)]
-        public string Repos { get; set; }
-
-        public GroupModel Group { get; set; }
-
-
-
+        public string GName { get; set; }
+        public List<ProjectModel> Projects { get; set; }
+        public List<StudentModel> Students { get; set; }
+        public TAModel TA { get; set; }
     }
 }
