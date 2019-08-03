@@ -1,2 +1,2 @@
 # TAVSS
-The Web Service + Angular SPA
+This is Web Project 

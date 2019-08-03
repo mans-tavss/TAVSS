@@ -1,0 +1,123 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <IsPackable>false</IsPackable>
+    <SpaRoot>ClientApp\</SpaRoot>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+
+    <!-- Set this to true if you enable server-side prerendering -->
+    <BuildServerSideRenderer>false</BuildServerSideRenderer>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Content Remove="$(SpaRoot)**" />
+    <None Remove="$(SpaRoot)**" />
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="ClientApp\.git\COMMIT_EDITMSG" />
+    <None Include="ClientApp\.git\config" />
+    <None Include="ClientApp\.git\description" />
+    <None Include="ClientApp\.git\HEAD" />
+    <None Include="ClientApp\.git\hooks\applypatch-msg.sample" />
+    <None Include="ClientApp\.git\hooks\commit-msg.sample" />
+    <None Include="ClientApp\.git\hooks\fsmonitor-watchman.sample" />
+    <None Include="ClientApp\.git\hooks\post-update.sample" />
+    <None Include="ClientApp\.git\hooks\pre-applypatch.sample" />
+    <None Include="ClientApp\.git\hooks\pre-commit.sample" />
+    <None Include="ClientApp\.git\hooks\pre-push.sample" />
+    <None Include="ClientApp\.git\hooks\pre-rebase.sample" />
+    <None Include="ClientApp\.git\hooks\pre-receive.sample" />
+    <None Include="ClientApp\.git\hooks\prepare-commit-msg.sample" />
+    <None Include="ClientApp\.git\hooks\update.sample" />
+    <None Include="ClientApp\.git\index" />
+    <None Include="ClientApp\.git\info\exclude" />
+    <None Include="ClientApp\.git\logs\HEAD" />
+    <None Include="ClientApp\.git\logs\refs\heads\master" />
+    <None Include="ClientApp\.git\objects\06\c734263e1716e120bbb2771845eca1ae74c055" />
+    <None Include="ClientApp\.git\objects\0f\3d9d8b9f8e1a938befbfea5ac8bc11494ea709" />
+    <None Include="ClientApp\.git\objects\16\317897b1c50a3a71bc775a8d6429f2b4c6cf98" />
+    <None Include="ClientApp\.git\objects\1e\b91e9f27ba3aead3996428b6dce94786ea6861" />
+    <None Include="ClientApp\.git\objects\2c\3ba2995c8510c02ca812f90280146738f162cf" />
+    <None Include="ClientApp\.git\objects\30\956ae7ea265edf9bdc17001d75457e51ebe107" />
+    <None Include="ClientApp\.git\objects\31\09e455389427b83c375e83bc64230cd45beb3a" />
+    <None Include="ClientApp\.git\objects\32\c5372de8c9f507da3d5a7284b1bd54076e54dd" />
+    <None Include="ClientApp\.git\objects\36\12073bc31cd4c1f5d6cbb00318521e9a61bd8a" />
+    <None Include="ClientApp\.git\objects\39\b800f789619f0fb8063aba2e05bd5a57850e57" />
+    <None Include="ClientApp\.git\objects\3b\645210687173bc3e57067648835455bc976414" />
+    <None Include="ClientApp\.git\objects\54\9891943edefb5c52e70a05cc252c23cebee38c" />
+    <None Include="ClientApp\.git\objects\56\5a11a2156b8307120e25ba35a89bf17a094f26" />
+    <None Include="ClientApp\.git\objects\57\76aa9eb80d8e5ad05ed75ec9a04e7ee5060ba9" />
+    <None Include="ClientApp\.git\objects\5b\1fe1de568ddcbaee40d09c2a87b06531ee13d4" />
+    <None Include="ClientApp\.git\objects\5c\8a0b1f5a9a6ea2eeed774dbe5a60373759527f" />
+    <None Include="ClientApp\.git\objects\62\337e129393c68eb02112ff6df99060a3f98dcf" />
+    <None Include="ClientApp\.git\objects\64\00fde7d544029c82e13d368a6b69d6664fe857" />
+    <None Include="ClientApp\.git\objects\73\e4e6806cd6b451dc89181ce574c386c6c837da" />
+    <None Include="ClientApp\.git\objects\76\9e82f1be3b79032594339ae7cf80ee39c3c333" />
+    <None Include="ClientApp\.git\objects\7b\4f817adb754769ca126a939d48ac4b0850489d" />
+    <None Include="ClientApp\.git\objects\80\81c7ceaf2be08bf59010158c586170d9d2d517" />
+    <None Include="ClientApp\.git\objects\80\848532e47d58cc7a4b618f600b438960f9f045" />
+    <None Include="ClientApp\.git\objects\86\d943a9b2e8f3bb69fbe37fd8363962646b1d92" />
+    <None Include="ClientApp\.git\objects\90\d4ee0072ce3fc41812f8af910219f9eea3c3de" />
+    <None Include="ClientApp\.git\objects\98\36a22bac84f9e3d495941838a7426e5be00675" />
+    <None Include="ClientApp\.git\objects\9d\772b300ba4d7895f3cdff5656e6d54b389ae4c" />
+    <None Include="ClientApp\.git\objects\a9\eaedc7492aa5ab5ed5a5825e1134bb797b8a00" />
+    <None Include="ClientApp\.git\objects\aa\665d6b8740860e1d67de37a26ab362ef8ba974" />
+    <None Include="ClientApp\.git\objects\b2\ba644d6793cfb949766b41b69d2358901b24ce" />
+    <None Include="ClientApp\.git\objects\b8\adb69b690fa07107e8ebb8ff411c7533ccd381" />
+    <None Include="ClientApp\.git\objects\c3\15e9a1141c0b180230ed491ee158d5edc8fe94" />
+    <None Include="ClientApp\.git\objects\c7\b673cf44b388e9989fe908b78d7d73cd2e1409" />
+    <None Include="ClientApp\.git\objects\d5\64d0bc3dd917926892c55e3706cc116d5b165e" />
+    <None Include="ClientApp\.git\objects\da\e6a77b2758c73fad4e78ab910beafd3061c77a" />
+    <None Include="ClientApp\.git\objects\e6\9de29bb2d1d6434b8b29ae775ad8c2e48c5391" />
+    <None Include="ClientApp\.git\objects\e8\9330a618c137cdaccde46f87923736cc04dfb4" />
+    <None Include="ClientApp\.git\objects\f0\adae98002bc69c91eb549a00bb2b0850c22341" />
+    <None Include="ClientApp\.git\refs\heads\master" />
+    <None Include="ClientApp\angular.json" />
+    <None Include="ClientApp\e2e\tsconfig.json" />
+    <None Include="ClientApp\package-lock.json" />
+    <None Include="ClientApp\package.json" />
+    <None Include="ClientApp\tsconfig.app.json" />
+    <None Include="ClientApp\tsconfig.json" />
+    <None Include="ClientApp\tsconfig.spec.json" />
+    <None Include="ClientApp\tslint.json" />
+  </ItemGroup>
+
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+  </Target>
+
+  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build -- --prod" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build:ssr -- --prod" Condition=" '$(BuildServerSideRenderer)' == 'true' " />
+
+    <!-- Include the newly-built files in the publish output -->
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
+      <DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
+</Project>
