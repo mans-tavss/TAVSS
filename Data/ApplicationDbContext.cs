@@ -27,6 +27,12 @@ namespace TAVSS.Data
                 new { Id = "5", Name = "TA", NormalizedName = "TA" }
 
                 );
+            //Fluent API for Relations
+            builder.Entity<StudentGroupModel>()
+                   .HasKey(sg => new { sg.SId, sg.GId });
+
+            builder.Entity<CourseTAModel>()
+                .HasKey(CT => new { CT.CId, CT.TId });
 
         }
 

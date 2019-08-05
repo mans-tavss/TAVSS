@@ -14,8 +14,12 @@ namespace TAVSS.Models
         [Required]
         [MaxLength(100)]
         public string GName { get; set; }
+
+        //Relationship
+        public List<StudentGroupModel> SGroup { get; set; }
         public List<ProjectModel> Projects { get; set; }
-        public List<StudentModel> Students { get; set; }
         public TAModel TA { get; set; }
+
+        
     }
 }

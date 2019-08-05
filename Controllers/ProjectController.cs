@@ -21,6 +21,12 @@ namespace TAVSS.Controllers
             _context = context;
         }
 
+        [HttpGet("{gid}")]
+        public async Task<ActionResult<IEnumerable<ProjectModel>>> GetProject(int gid)
+        {
+            
+            return await _context.Projects.Where(x=> x.Group.Id == gid).ToListAsync();
+        }
         // GET: api/Project
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProjectModel>>> GetProjects()

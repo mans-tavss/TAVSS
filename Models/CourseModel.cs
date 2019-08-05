@@ -20,12 +20,14 @@ namespace TAVSS.Models
         [MaxLength(1000)]
         public string Repos { get; set; } 
 
+        // Relations
         [Required]
         public List<DoctorModel> Doctors { get; set; }
         
-        public List<TAModel> TAs { get; set; }
 
         public List<GroupModel> Groups { get; set; }
+
+        public List<CourseTAModel> CTA { get; set; }
 
 
     }

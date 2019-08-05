@@ -19,15 +19,6 @@ namespace TAVSS.Models
 
 
         [Required]
-        [DataType(DataType.Password), MinLength(8), MaxLength(100)]
-        public string Password { get; set; }
-
-        [Required]
-        [DataType(DataType.Password)]
-        [Display(Name = "Confirm Password")]
-        public string ConfirmPassWord { get; set; }
-
-        [Required]
         [DataType(DataType.Date)]
         public DateTime DOB { get; set; }
 
@@ -39,5 +30,7 @@ namespace TAVSS.Models
         [StringRange(AllowableValues = new[] { "M", "F" }, ErrorMessage = "Gender must be either 'M' or 'F'.")]
         public string Gender { get; set; }
 
+        // Relationship
+        public List<StudentGroupModel> SGroup { get; set; }
     }
 }

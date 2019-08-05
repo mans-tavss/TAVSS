@@ -18,10 +18,6 @@ namespace TAVSS.Models
         public string DName { get; set; }
 
         [Required]
-        [DataType(DataType.Password), MinLength(8), MaxLength(100)]
-        public string Password { get; set; }
-
-        [Required]
         [DataType(DataType.Date)]
         public DateTime DOB { get; set; }
 
@@ -35,8 +31,6 @@ namespace TAVSS.Models
 
         [MaxLength(600)]
         public string Pic { get; set; }
-
-
 
 
     }
