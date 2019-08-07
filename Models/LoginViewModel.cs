@@ -9,12 +9,10 @@ namespace TAVSS.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "First Name")]
-        public string FName { get; set; }
+        [Display(Name = "User Name")]
+        public string Name { get; set; }
 
-        [Required]
-        [Display(Name = "Last Name")]
-        public string Lname { get; set; }
+
 
         [Required]
         [DataType(DataType.Password), MinLength(8), MaxLength(100)]

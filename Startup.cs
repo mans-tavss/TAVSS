@@ -24,15 +24,19 @@ namespace TAVSS
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region Model-View-Controller Pipeline
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            #endregion
 
+            #region Single page App (Angular Pipeline)
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+            #endregion
 
-            #region Cross Origin Request Service
+            #region Cross Origin Request Service Pipeline
             //Add Cors 
             services.AddCors(options => {
                 options.AddPolicy("EnableCors", policies => {
@@ -41,8 +45,11 @@ namespace TAVSS
             });
             #endregion
 
+            #region Connection String
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            #endregion
 
+            #region Identity Framework Pipeline
             services.AddIdentity<IdentityUser, IdentityRole>(options=>
             {
                 options.Password.RequireDigit = true;
@@ -58,11 +65,13 @@ namespace TAVSS
 
 
             }).AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
+            #endregion
         }
-        
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            #region Development Status Controlling
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -73,19 +82,28 @@ namespace TAVSS
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            #endregion
 
+            #region Enable static files redirections
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
-            app.UseCors("EnableCors");
+            #endregion
 
+            #region Enaple CORS Pipeline
+            app.UseCors("EnableCors");
+            #endregion
+
+            #region Enable MVC Structure pattern
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller}/{action=Index}/{id?}");
             });
+            #endregion
 
+            #region Enable Single Page app (Angular)
             app.UseSpa(spa =>
             {
                 // To learn more about options for serving an Angular SPA from ASP.NET Core,
@@ -98,6 +116,7 @@ namespace TAVSS
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
+            #endregion
 
         }
     }
