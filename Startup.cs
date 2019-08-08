@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -7,8 +8,11 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Text;
 using TAVSS.Data;
+using TAVSS.Helpers;
 
 namespace TAVSS
 {
@@ -66,6 +70,34 @@ namespace TAVSS
 
             }).AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
             #endregion
+
+            #region configure Strongly typed settings object
+            var appSettingsSection = Configuration.GetSection("AppSettings");
+            services.Configure<AppSettings>(appSettingsSection);
+
+            var appSettings = appSettingsSection.Get<AppSettings>();
+            var key = Encoding.ASCII.GetBytes(appSettings.Secret);
+            #endregion
+
+            #region JWT Beerer Auth pipeline
+            services.AddAuthentication(o =>
+            {
+                o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                o.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                o.DefaultSignInScheme = JwtBearerDefaults.AuthenticationScheme;
+
+            }).AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
+           options.TokenValidationParameters = new TokenValidationParameters
+           {
+               ValidateIssuerSigningKey = true,
+               ValidateAudience = true,
+               ValidateIssuer = true,
+               ValidIssuer = appSettings.Site,
+               ValidAudience = appSettings.Audience,
+               IssuerSigningKey = new SymmetricSecurityKey(key)
+
+           });
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -92,6 +124,10 @@ namespace TAVSS
 
             #region Enaple CORS Pipeline
             app.UseCors("EnableCors");
+            #endregion
+
+            #region Enable Auth
+            app.UseAuthentication();
             #endregion
 
             #region Enable MVC Structure pattern
